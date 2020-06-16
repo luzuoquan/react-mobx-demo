@@ -1,6 +1,5 @@
-import globalInfo from './global';
-
+import homeInfo from './home';
 
 export default {
-  globalInfo,
+  homeInfo,
 };

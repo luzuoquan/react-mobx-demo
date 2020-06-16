@@ -1,29 +1,30 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/static-property-placement */
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import PropTypes from 'prop-types';
 
-@inject('globalInfo')
+@inject('homeInfo')
 @observer
 export default class Home extends Component {
-  handleUpdateName = () => {
-    const { globalInfo: { updateName } } = this.props;
-    updateName('云课堂 Mobx 实例');
+  static propTypes = {
+    homeInfo: PropTypes.objectOf(PropTypes.object),
+  }
+
+  static defaultProps = {
+    homeInfo: {},
+  }
+
+  handleClick = () => {
+    const { homeInfo: { updateName } } = this.props;
+    updateName('Mobx 接入 - 云课堂');
   }
 
   render() {
-    const {
-      globalInfo: { title },
-    } = this.props;
-
+    const { homeInfo: { name } } = this.props;
     return (
       <div className="mobx">
-        <p>{title}</p>
-        <button
-          type="button"
-          onClick={this.handleUpdateName}
-        >
-          更改
-        </button>
+        <p>{name}</p>
+        <button type="button" onClick={this.handleClick}>更改</button>
       </div>
     );
   }
