@@ -36,5 +36,6 @@ module.exports = {
     "no-shadow": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": 0,
+    "react/static-property-placement": 0,
   }
 }
